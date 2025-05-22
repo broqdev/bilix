@@ -213,7 +213,6 @@ class BaseDownloaderPart(BaseDownloader):
             return part_path  # skip already finished
 
         for times in range(1 + self.stream_retry):
-            url_idx = random.randint(0, len(urls) - 1)
             # find domain with min score in domain_scores
             domains = [urlparse(url_).netloc for url_ in urls]
             domain_idx = min(range(len(domains)), key=lambda i: domain_scores.get(domains[i], 0))
